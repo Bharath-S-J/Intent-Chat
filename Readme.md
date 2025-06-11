@@ -1,4 +1,4 @@
-# Intent Chat
+# Intent Chat 
 ## Chat Application - Full Stack (Frontend + Backend)
 
 A full-featured real-time chat application with:
