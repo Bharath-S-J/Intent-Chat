@@ -150,10 +150,3 @@ npm run dev
 
 ---
 
-## 🔗 **GitHub Repository**
-
-👉 [https://github.com/Bharath-S-J/Intent-Chat](https://github.com/Bharath-S-J/Intent-Chat)
-
----
-
-Let me know if you'd like a **PDF export**, a **Markdown version**, or if you're adding this to a portfolio site — I can adjust for SEO/preview meta too.
