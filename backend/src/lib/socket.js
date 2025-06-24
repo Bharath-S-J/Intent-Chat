@@ -28,8 +28,8 @@ io.on("connection", async (socket) => {
   console.log("User connected:", userId, socket.id);
   userSocketMap[userId] = socket.id;
 
-  await emitOnlineContactsToUser(userId);       // Send list to current user
-  await notifyContactsOfStatusChange(userId);   // Notify their contacts
+  await emitOnlineContactsToUser(userId);       
+  await notifyContactsOfStatusChange(userId);   
 
   socket.on("disconnect", async () => {
     console.log("User disconnected:", userId);

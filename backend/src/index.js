@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import authRoutes from "./routes/auth.route.js"
 import messageRoutes from "./routes/message.route.js"
 import userRoutes from "./routes/user.route.js"
+import aiRoutes from "./routes/ai.route.js"
 import cookieParser from "cookie-parser";
 import { connectDB } from "./lib/db.js";
 import cors from "cors";
@@ -21,11 +22,13 @@ app.use(
   })
 ); 
 
+// app.use(cors())
 
 
 app.use("/api/auth", authRoutes)
 app.use("/api/messages", messageRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/ai", aiRoutes);
 
 server.listen(PORT, ()=> {
     console.log("Server is running on port: " + PORT)

@@ -8,7 +8,7 @@ const BASE_URL =
 
 export const useAuthStore = create((set, get) => ({
   authUser: null,
-  contacts: [],          // <-- Add contacts state
+  contacts: [],          
   isSigningUp: false,
   isLoggingIn: false,
   isUpdatingProfile: false,
@@ -20,7 +20,7 @@ export const useAuthStore = create((set, get) => ({
     try {
       const res = await axiosInstance.get("/auth/check");
       set({ authUser: res.data });
-      await get().fetchContacts();    // Fetch contacts after auth
+      await get().fetchContacts();    
       get().connectSocket();
     } catch (error) {
       console.error("Error in checkAuth:", error);
@@ -32,7 +32,7 @@ export const useAuthStore = create((set, get) => ({
 
   fetchContacts: async () => {
     try {
-      const res = await axiosInstance.get("user/contacts"); // Adjust endpoint as needed
+      const res = await axiosInstance.get("user/contacts"); 
       set({ contacts: res.data });
     } catch (error) {
       console.error("Failed to fetch contacts:", error);
@@ -52,7 +52,7 @@ export const useAuthStore = create((set, get) => ({
       const res = await axiosInstance.post("/auth/signup", payload);
       set({ authUser: res.data });
       toast.success("Account created successfully");
-      await get().fetchContacts();    // Fetch contacts after signup
+      await get().fetchContacts();   
       get().connectSocket();
     } catch (error) {
       const message = error.response?.data?.message || "Signup failed. Please try again.";
@@ -68,7 +68,7 @@ export const useAuthStore = create((set, get) => ({
       const res = await axiosInstance.post("/auth/login", data);
       set({ authUser: res.data });
       toast.success("Logged in successfully");
-      await get().fetchContacts();    // Fetch contacts after login
+      await get().fetchContacts();    
       get().connectSocket();
     } catch (error) {
       console.error("Login error:", error);
@@ -118,7 +118,7 @@ export const useAuthStore = create((set, get) => ({
     newSocket.connect();
 
     newSocket.on("getOnlineUsers", (userIds) => {
-      // Filter online user IDs by contacts' IDs
+      
       const contactIds = contacts.map((c) => (typeof c === "string" ? c : c._id));
       const onlineContacts = userIds.filter((id) => contactIds.includes(id));
       set({ onlineUsers: onlineContacts });

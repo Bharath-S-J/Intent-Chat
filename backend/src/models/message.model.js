@@ -18,6 +18,10 @@ const messageSchema = new mongoose.Schema(
     image: {
       type: String,
     },
+    tone: {
+      type: String, 
+      default: null,
+    },
   },
   { timestamps: true }
 );
